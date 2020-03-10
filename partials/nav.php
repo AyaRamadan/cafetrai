@@ -1,5 +1,5 @@
   <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand-md navbar-dark navbar-lightblue">
+  <nav class="main-header navbar navbar-expand-md navbar-dark navbar-lightblue" >
     <div class="container">
      
       
@@ -23,7 +23,7 @@
             <a href="#" class="nav-link">Manual order</a>
           </li>
           <li class="nav-item ">
-            <a href="#" class="nav-link">Checks</a>
+            <a href="../views/checks.php" class="nav-link">Checks</a>
           </li>
         </ul>
 
