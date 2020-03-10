@@ -1,5 +1,5 @@
   <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand-md navbar-dark navbar-lightblue" >
+  <nav class="main-header navbar navbar-expand-md navbar-dark navbar-lightblue">
     <div class="container">
      
       
@@ -11,19 +11,19 @@
         <!-- Left navbar links -->
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a href="index3.html" class="nav-link">Home</a>
+            <a href="/admin" class="nav-link">Home</a>
           </li>
           <li class="nav-item">
-            <a href="../views/products.php" class="nav-link">Products</a>
+            <a href="/admin/views/products.php" class="nav-link">Products</a>
           </li>
           <li class="nav-item ">
-            <a href="../views/users.php" class="nav-link">Users</a>
+            <a href="/admin/views/users.php" class="nav-link">Users</a>
           </li>
           <li class="nav-item ">
             <a href="#" class="nav-link">Manual order</a>
           </li>
           <li class="nav-item ">
-            <a href="../views/checks.php" class="nav-link">Checks</a>
+            <a href="#" class="nav-link">Checks</a>
           </li>
         </ul>
 
