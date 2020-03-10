@@ -11,13 +11,13 @@
         <!-- Left navbar links -->
         <ul class="navbar-nav">
           <li class="nav-item">
-            <!-- <a href="index3.html" class="nav-link">Home</a> -->
+            <a href="/admin" class="nav-link">Home</a>
           </li>
           <li class="nav-item">
-            <a href="../views/products.php" class="nav-link">Products</a>
+            <a href="/admin/views/products.php" class="nav-link">Products</a>
           </li>
           <li class="nav-item ">
-            <a href="../views/users.php" class="nav-link">Users</a>
+            <a href="/admin/views/users.php" class="nav-link">Users</a>
           </li>
           <li class="nav-item ">
             <a href="#" class="nav-link">Manual order</a>
