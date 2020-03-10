@@ -1,0 +1,52 @@
+.chooseDate{
+    margin:15px;
+}
+.chooseDate i{
+    margin-right: 5%;
+}
+.table{
+    margin:15px auto;
+}
+tbody{
+    font-size: 1.25em;
+}
+.displayOrderProduct{
+height:172px;
+overflow:auto;
+border: 1px solid #ddd;
+}
+.displayOrderProduct ul{
+    display: block;
+    margin:10px auto;
+}
+.displayOrderProduct li{
+    display: inline-block;
+    width:21%;
+    margin:3px 1.5%;
+    text-align: center;
+}
+.displayOrderProduct li span{
+    display: inline-block;
+    margin:2px 3px;
+    font-size: 1.2em;
+}
+#productsAmount{
+    display: block;
+}
+.displayOrderProduct img  {
+   width:90%;
+   display: block;
+    height:80px;
+    border:1px solid #777;
+    border-radius: 3%;
+}
+h4{
+    display: inline-block;
+    margin-left:  40%;
+  
+}
+#totalPrice{
+    margin-right:  40%;
+    font-size: 1.3em;
+   
+}
