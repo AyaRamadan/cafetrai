@@ -42,15 +42,21 @@
                                 <label for="exampleInputPrice">Price</label>
                                 <input type="number" class="form-control" id="exampleInputPrice" name="price" placeholder="Enter price">
                             </div>
-
                             <div class="form-group">
                                 <label>Category</label>
                                 <select class="form-control" name="category">
-                                    <option>option 1</option>
-                                    <option>option 2</option>
-                                    <option>option 3</option>
-                                    <option>option 4</option>
-                                    <option>option 5</option>
+                                    <?php
+                                        $query="SELECT * from category";
+                                        $result=mysqli_query($conn,$query);
+                                        // $row1='';
+                                    ?>
+                                     <?php while($row1 = mysqli_fetch_array($result)):;?>
+
+                                    <option value="<?php echo $row1[1];?>"><?php echo $row1[1];?></option>
+
+                                    <?php endwhile;?>
+                                            
+                                    
                                 </select>
                                 <a href="category.php">Add a category</a>
                             </div>
