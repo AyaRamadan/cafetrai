@@ -48,7 +48,7 @@
                                     <option>option 4</option>
                                     <option>option 5</option>
                                 </select>
-                                <a href="./category">Add a category</a>
+                                <a href="./category.php">Add a category</a>
                             </div>
 
                           
