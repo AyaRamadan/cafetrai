@@ -33,9 +33,10 @@ $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 // Check if image file is a actual image or fake image
 if(isset($_POST["submit"])) {
     $check = getimagesize($_FILES["img"]["tmp_name"]);
+   
     if($check !== false) {
         // echo "File is an image - " . $check["mime"] . ".";
-        header('products.php');
+        
         $uploadOk = 1;
     } else {
         echo "File is not an image.";
@@ -65,7 +66,7 @@ if ($uploadOk == 0) {
 } else {
     if (move_uploaded_file($_FILES["img"]["tmp_name"], $target_file)) {
         // echo "The file ". basename( $_FILES["img"]["name"]). " has been uploaded.";
-        header('products.php');
+        header('Location: ../views/products.php');
         if (count($errors) == 0) {
             $img=$_FILES["img"]["name"];            
             $sql = "INSERT INTO product (product_name,price,picture,category)

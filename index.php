@@ -31,7 +31,7 @@
             <div class="card-body login-card-body">
                 <p class="login-box-msg">Sign in to start your session</p>
 
-                <form action="./controllers/auth.php" method="post">
+                <form action="./controller/auth.php" method="post">
                     <div class="input-group mb-3">
                         <input type="text" name="username" class="form-control" placeholder="username">
                         <div class="input-group-append">
