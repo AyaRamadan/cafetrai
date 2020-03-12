@@ -28,26 +28,19 @@
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form role="form">
+                    <form role="form" method="post" action="../controller/add_category.php">
                         <div class="card-body">
                             <div class="form-group">
                                 <label for="exampleCatName">Name</label>
                                 <input type="text" name="catName" class="form-control" id="exampleCatName" placeholder="Enter Name">
                             </div>
-                           
-
-                         
-
-                          
-                          
-                           
 
                         </div>
                         <!-- /.card-body -->
 
                         <div class="card-footer">
                             <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
-                            <input type="submit" value="sumbit" class="btn btn-primary">
+                            <input type="submit" value="sumbit" class="btn btn-primary" name="submit">
                             <input type="reset" value="reset" class="btn bg-gradient-warning ">
                         </div>
                     </form>

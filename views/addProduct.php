@@ -1,3 +1,7 @@
+<?php
+    include('../connection/connection.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,7 +32,7 @@
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form role="form">
+                    <form role="form" method="post" action="../controller/add_product_query.php" enctype="multipart/form-data">
                         <div class="card-body">
                             <div class="form-group">
                                 <label for="exampleInputName">Product</label>
@@ -48,7 +52,7 @@
                                     <option>option 4</option>
                                     <option>option 5</option>
                                 </select>
-                                <a href="./category">Add a category</a>
+                                <a href="category.php">Add a category</a>
                             </div>
 
                           
@@ -57,7 +61,7 @@
                                 <label for="exampleInputFile">Product picture</label>
                                 <div class="input-group">
                                     <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="exampleInputFile">
+                                        <input type="file" name="img" class="custom-file-input" id="exampleInputFile">
                                         <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                                     </div>
                                     <div class="input-group-append">
@@ -71,7 +75,7 @@
 
                         <div class="card-footer">
                             <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
-                            <input type="submit" value="sumbit" class="btn btn-primary">
+                            <input type="submit" value="sumbit" class="btn btn-primary" name="submit">
                             <input type="reset" value="reset" class="btn bg-gradient-warning ">
                         </div>
                     </form>
@@ -95,3 +99,4 @@
 </body>
 
 </html>
+
