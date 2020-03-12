@@ -27,6 +27,9 @@ SET time_zone = "+00:00";
 --
 -- Table structure for table `category`
 --
+create database cafeteria;
+use cafeteria;
+
 
 CREATE TABLE `category` (
   `category_id` int(11) NOT NULL,
