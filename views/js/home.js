@@ -1,16 +1,18 @@
 let index=-1;
 let totalPrice=0;
 $(".menuItem").on("click",(event)=>{
+    console.log(event.target);
+    
     const child=`<div class="row newItem">
-        <label for="itemsNumber" class="col-2" >${event.target.id}</label>
-        <input class="input-group-text col-1 noOfItems" value="1" name=${event.target.id} readonly >
+        <label for="itemsNumber" class="col-2" >${$(event.target).attr('data-name')}</label>
+        <input class="input-group-text col-1 noOfItems" value="1" name=${$(event.target).attr('data-id')} readonly >
         <input type="button" class="fa-hand-pointer plus" value="+">
         <input type="button" class="fa-hand-pointer minus" value="-">
-        <input class="input-group-text col-3 itemsPrice" value='${event.target.alt}' readonly>
+        <input class="input-group-text col-3 itemsPrice" value='${$(event.target).attr('data-price')}' readonly>
         <input type="button" class="fa-hand-pointer text-black-100 text-bold bg-light remove" value="x"></input>
         </div>`    
     
-    const itemPrice=Number(event.target.alt.split(" ")[0]);
+    const itemPrice=Number($(event.target).attr('data-price').split(" ")[0]);
     $("#orderItems").append(child);
     $(event.target).css("display","none");
     let obj=$(event.target);

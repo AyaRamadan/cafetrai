@@ -4,11 +4,12 @@ if (isset($_POST["login"])) {
     if ($_POST['username'] == 'admin' && $_POST['password'] = '123') {
         session_start();
         $_SESSION['username'] = 'admin';
+        $_SESSION['picture']= 'admin.png';
         var_dump($_SESSION['username']);
-        header("Location:../views/homeAdmin.php");
+        header("Location:../views/adminHome.php");
     } else {
         try {
-            $pdo = new PDO("mysql:host=localhost;dbname=cafeteria", 'root', '');
+            $pdo = new PDO("mysql:host=localhost;dbname=cafeteria", 'root', 'iti');
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
             $stm = $pdo->query("select * from users where username='{$_POST['username']}' and password='{$_POST['pass']}' ");
@@ -23,7 +24,10 @@ if (isset($_POST["login"])) {
                         session_start();
                         // $_SESSION['id'] = $row['id'];
                         $_SESSION['username'] = $row['username'];
-                        header("Location:../views/order.php");
+                        $_SESSION['id']=$row['id'];
+                        $_SESSION['picture']=$row['picture'];
+                        
+                        header("Location:../views/userHome.php");
                         // $_SESSION_destroy();
                     }
                 } else {

@@ -22,8 +22,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 </head>
 
 <?php
-
     session_start();
+
     if($_GET['e']){
         $message = "please select some items for your order";
         echo "<script type='text/javascript'>alert('$message');</script>";
@@ -48,6 +48,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
     while($row = mysqli_fetch_assoc($result2)) {
         $products[]=$row;
     }
+
+    $latest_order=[];
+
+    $result3=$conn->query("SELECT * FROM orders join products_items on orders.order_id=products_items.order_id 
+    AND user_id={$_SESSION['id']} join product on products_items.product_id=product.product_id where 
+    orders.order_id= (select order_id from orders where user_id={$_SESSION['id']} order by orders.order_id DESC limit 1)");
+
+    while($row = mysqli_fetch_assoc($result3)) {
+        $latest_order[]=$row;
+    }
+
     $result->free();
     $conn->close();
 ?>
@@ -84,23 +95,60 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- Main content -->
             <div class="content">
                 <div class="container" id="mainContainer">
+                <label for="latestOrder">Your Latest Order</label>
+                    
+                <div class="row" id="latestOrder">
+                    <div class="card">
+                <div class="card-body">
+
+                    <div class="col-lg-6">
+                        <div class="card card-primary card-outline">
+                        <label for="latestOrderCost">Total cost</label>
+
+                        <input class="input-group-text" value=<?php echo $latest_order[0]['cost']?> id="latestOrderCost">
+                        </input>
+
+                        </div>
+                        <div class="card card-primary card-outline">
+                        <label for="lastorderdate">order date</label>
+
+                        <input class="input-group-text" value=<?php echo $latest_order[0]['order_date']?> id="lastorderdate">
+                        </input>
+
+                        </div>
+                    </div>
+                </div>
+                </div>
+                    <div class="col-lg-6">
+                        <div class="card card-primary card-outline">
+                            <div class='row'>
+                                
+                            <?php
+                                foreach($latest_order as $order){
+
+                                   echo" 
+                                   <div class='card'>
+                                    <div class='card-body'>
+                                   <img class='lastorderimg' src='../uploads/{$order['picture']}' >
+                                   <div>
+                                    <label >amount</label>
+                                    <input class='input-group-text col-3' readonly value={$order['amount']}></input>
+                                   </div>
+                                   </div>
+                                   </div>
+                                   ";
+                                }
+                            
+                            ?>
+                            
+                            </div>
+                        </div>
+                    </div>     
+                </div>    
                     <form id="mainForm" action="../controller/add_order.php" method="POST">
                         <div class="row">
                             <div class="col-lg-6">
-                                <div class="card card-primary card-outline">
-                                    <div class="input-group mb-3">
-                                        <div class="input-group-prepend">
-                                            <label class="input-group-text" for="inputGroupSelect01">add to user</label>
-                                        </div>
-                                        <select class="custom-select" id="inputGroupSelect01" name="user_id">
-                                            <?php
-                                                foreach ($users as $id => $name){
-                                                    echo  "<option value={$id}>{$name}</option>";
-                                                }
-                                            ?>
-                                        </select>
-                                    </div>
-                                </div>
+                                <input type="hidden" name="user_id" value="<?php echo $_SESSION['id']?>"></input>
                                 <div class="card ">
 
                                     <div class="card-body" id="orderItems">

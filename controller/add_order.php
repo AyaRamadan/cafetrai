@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 include '../connection/connection.php';
 global $conn;
 $errors =[];
@@ -33,7 +33,12 @@ if(empty($room)){
 
 
 if($errors){
-    var_dump($errors);
+    if($_SESSION['username']=='admin'){
+        header("Location:../views/adminHome.php?e=1");
+    }else{
+        header("Location:../views/userHome.php?e=1");
+    }
+
 }else{
     $result=$conn->query("insert into orders set user_id={$user}, notes='{$notes}', cost='{$cost}', room_no={$room}, status='processing'");
     $order_id=$conn->insert_id;
@@ -43,13 +48,19 @@ if($errors){
     }
     $items=rtrim($items,',');
     $result2=$conn->query("insert into  products_items values {$items} ");
-    if($result2){
-        header("Location:../views/adminHome.php");
+    if($result2 && $result){
+        if($_SESSION['username']=='admin'){
+            header("Location:../views/adminHome.php");
+        }else{
+            header("Location:../views/userHome.php");
+        }
     }else{
-        echo "insert into  products_items values {$items}";
-        // echo $mysqli_error($result);
+        if($_SESSION['username']=='admin'){
+            header("Location:../views/adminHome.php?s=1");
+        }else{
+            header("Location:../views/userHome.php?s=1");
+        }
     }
 }    
 
-var_dump($_POST);
 ?>

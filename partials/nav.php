@@ -11,7 +11,7 @@
         <!-- Left navbar links -->
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a href="/admin" class="nav-link">Home</a>
+            <a href="../controller/logout.php" class="nav-link">Logout</a>
           </li>
           <li class="nav-item">
             <a href="/admin/views/products.php" class="nav-link">Products</a>
@@ -42,10 +42,10 @@
             <a href="#" class="dropdown-item">
               <!-- Message Start -->
               <div class="media">
-                <img src="../public/dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+                
                 <div class="media-body">
                   <h3 class="dropdown-item-title">
-                    Brad Diesel
+                    
                     <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
                   </h3>
                   <p class="text-sm">Call me whenever you can...</p>
@@ -119,8 +119,10 @@
         </li>
         <li class="nav-item dropdown user-menu">
           <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
-            <img src="../public/dist/img/user2-160x160.jpg" class="user-image img-circle elevation-2" alt="User Image">
-            <span class="d-none d-md-inline">Alexander Pierce</span>
+                <?php
+                  echo "<img src='../uploads/{$_SESSION['picture']}' alt='User Avatar' class='img-size-50 mr-3 img-circle'>"
+                ?>
+            <span class="d-none d-md-inline"><?php echo $_SESSION['username']?></span>
           </a>
           <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
             <!-- User image -->

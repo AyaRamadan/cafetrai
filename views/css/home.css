@@ -1,5 +1,8 @@
-.menuItem{
+.lastorderimg , .menuItem{
     cursor: pointer;
     width: 150px;
     height: 150px;
+}
+#notesInput{
+    height: 100px;
 }
