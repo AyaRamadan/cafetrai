@@ -23,7 +23,10 @@
             <a href="#" class="nav-link">Manual order</a>
           </li>
           <li class="nav-item ">
-            <a href="#" class="nav-link">Checks</a>
+            <a href="/admin/views/checks.php" class="nav-link">Checks</a>
+          </li>
+          <li class="nav-item ">
+            <a href="/admin/views/orders.php" class="nav-link">Orders</a>
           </li>
         </ul>
 
