@@ -1,3 +1,7 @@
+<?php
+    include('../connection/connection.php');
+?> 
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,52 +36,37 @@
                         <div class="card-body">
                             <table class="table table-bordered">
                                 <thead>
-                                    <tr>
+                                    <tr align="center">
                                         <th style="width: 10px">#</th>
                                         <th>Product</th>
                                         <th>Price</th>
                                         <th>img</th>
-                                        <th>action</th>
+                                        <th>category</th>
+                                        <th colspan="2">action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>1.</td>
-                                        <td>tea</td>
-                                        <td>
-                                            <p>5 EGB</p>
-                                        </td>
-                                        <td><img src="" alt=""></td>
-                                        <td>
-                                            <a href="">edit</a>
-                                            <a href="">delete</a>
-                                        </td>
+                                    <?php
+                                        $query="SELECT * from product";
+                                        $result=mysqli_query($conn,$query);
+                                        $count=1;
+                                    ?>
+                                   <?php while($row = mysqli_fetch_assoc($result)) { ?>
+                                    <tr><td align="center"><?php echo $count; ?></td><td align="center">
+                                        <?php echo $row["product_name"]; ?></td><td align="center">
+                                        <?php echo $row["price"]; ?></td><td align="center">
+                                        
+                                        <?php echo"<img src='../uploads/{$row['picture'] }' style='width:80px;height:130px'; ";?></td><td align="center">
+                                        <?php echo $row["category"]; ?></td><td align="center">
+                                        <a href="../controller/edit_product.php?id=<?php echo $row["product_id"] ?>">
+                                            <button type="button" class="btn btn-info">Edit</button>
+                                        </a></td><td align="center">
+                                        <a href="../controller/delete_product.php?id=?id=<?php echo $row["product_id"] ?>">
+                                            <button type="button" class="btn btn-danger">Delete</button>
+                                        </a></td>
                                     </tr>
-                                    <tr>
-                                        <td>.2</td>
-                                        <td>Nescafe</td>
-                                        <td>
-                                            <p>7 EGB</p>
-                                        </td>
-                                        <td><img src="" alt=""></td>
-                                        <td>
-                                            <a href="">edit</a>
-                                            <a href="">delete</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>3.</td>
-                                        <td>codffe</td>
-                                        <td>
-                                            <p>6 EGB</p>
-                                        </td>
-                                        <td><img src="" alt=""></td>
-                                        <td>
-                                            <a href="">edit</a>
-                                            <a href="">delete</a>
-                                        </td>
-                                    </tr>
-
+                                    <?php $count++; } ?>
+                                    
                                 </tbody>
                             </table>
                         </div>
