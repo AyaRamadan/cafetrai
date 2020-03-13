@@ -1,3 +1,7 @@
+<?php
+    include('../connection/connection.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,8 +24,8 @@
     <style>
        
         img {
-            width: 200px;
-            height: 200px;
+            width: 150px;
+            height: 150px;
         }
 
         #date {
@@ -32,7 +36,7 @@
         }
     </style>
 </head>
-<body class="hold-transition layout-top-nav"  background="../public/dist/img/11.jpg" style="background-repeat: no-repeat; background-size:cover">
+<body class="hold-transition layout-top-nav"   style="background-repeat: no-repeat; background-size:cover">
     <div class="wrapper">
         <?php include '../partials/nav.php'; ?>
         <div class="container mt-4">
@@ -54,6 +58,16 @@
     </div>
     <div class="form-group">
         <select class="form-control custom-select" name="User" style="width: 250px;">
+        <?php
+            $query="SELECT * from users";
+            $result=mysqli_query($conn,$query);
+            // $row1='';
+        ?>
+            <?php while($row1 = mysqli_fetch_array($result)):;?>
+
+        <option value="<?php echo $row1[1];?>"><?php echo $row1[1];?></option>
+
+        <?php endwhile;?>
         </select>
     </div>
         <table class="table text-center">
@@ -70,13 +84,25 @@
                         <tr>
                             <td><button class="btn btn-link" data-toggle="collapse" data-target="#cardone">+</button>
                             </td>
-                            <td>Ahmed</td>
-                            <td>1000</td>
-                        </tr>
-
-                    </div>
+                            
+                    <?php
+                    $query="SELECT * from orders , users where orders.order_id=users.id  ";
+                    
+                    $result=mysqli_query($conn,$query);
+                    $count=1;
+                    ?>
+                    <!-- <?php while($row = mysqli_fetch_assoc($result)) { ?> -->
+                    <tr>
+                        <td align="center"><?php echo $count; ?></td><td align="center">
+                            <?php echo $row["name"]; ?></td><td align="center">
+                            
+                        </td>
+                    </tr>
+                    
+                    <!-- <?php $count++; } ?> -->
+                    </tr>
                 </div>
-
+            </div>
             </tbody>
             <tfoot class="bg-info">
                 <tr>
@@ -120,9 +146,9 @@
             <div class="collapse show" id="cardone2" data-parent="#accordion">
                 <div class="card-body text-center ">
                     <img src="../public/dist/img/photo1.png" class="rounded-circle ml-2" />
-                    <img src="../public/dist/img/photo2.png" class="rounded-circle ml-2" />
+                    <!-- <img src="../public/dist/img/photo2.png" class="rounded-circle ml-2" />
                     <img src="../public/dist/img/photo3.jpg" class="rounded-circle ml-2" />
-                    <img src="../public/dist/img/photo4.jpg" class="rounded-circle ml-2" />
+                    <img src="../public/dist/img/photo4.jpg" class="rounded-circle ml-2" /> -->
                 </div>
 
             </div>

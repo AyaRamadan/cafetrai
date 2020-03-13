@@ -1,3 +1,6 @@
+<?php
+    include('../connection/connection.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,7 +30,7 @@
        
     </style>
 </head>
-<body class="hold-transition layout-top-nav"  background="../public/dist/img/11.jpg" style="background-repeat: no-repeat; background-size:cover">
+<body class="hold-transition layout-top-nav"   style="background-repeat: no-repeat; background-size:cover">
     <div class="wrapper">
         <?php include '../partials/nav.php'; ?>
         <div class="container mt-4">
@@ -45,17 +48,36 @@
                 </tr>
             </thead>
             <tbody>
-                <div id="accordion">
+                <!-- <div id="accordion">
                     <div class="card w-100 m-auto ">
                         <tr >
-                            <td> <button class="btn btn-link" data-toggle="collapse" data-target="#cardone">+</button> 22/5</td>
+                            <td> <button class="btn btn-link" data-toggle="collapse" data-target="#cardone">+</button></td>
                             <td>Ahmed</td>
                             <td>1000</td>
                             
                         </tr>
 
                     </div>
-                </div>
+                </div> -->
+                <?php
+                $query="SELECT * from orders , users where orders.order_id=users.id  ";
+                
+                $result=mysqli_query($conn,$query);
+                // $count=1;
+            ?>
+            <?php while($row = mysqli_fetch_assoc($result)) { ?>
+            <tr>
+                <td align="center"><?php echo $row['order_date']; ?></td><td align="center">
+                    <?php echo $row["name"]; ?></td><td align="center">
+                    <?php echo $row["room_no"]; ?></td><td align="center">
+                    <?php echo $row["ext"]; ?></td><td align="center">
+                    <?php echo $row["STATUS"]; ?></td><td align="center">
+                </td>
+            </tr>
+            
+            <?php  } ?>
+
+            
 
             </tbody>
             <tfoot class="bg-info">
@@ -70,7 +92,7 @@
 
  
 
-        <div class="card w-100 m-auto ">
+        <!-- <div class="card w-100 m-auto ">
 
             <div class="collapse show" id="cardone" data-parent="#accordion">
                 <div class="card-body text-center ">
@@ -87,7 +109,7 @@
                 
 
             </div>
-        </div>
+        </div> -->
 
 
 
