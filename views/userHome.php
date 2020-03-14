@@ -68,7 +68,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <div class="wrapper">
 
         <!-- Navbar -->
-        <?php include '../partials/nav.php'; ?>
+        <?php include '../partials/userNav.php'; ?>
         <!-- /.navbar -->
 
         <!-- Content Wrapper. Contains page content -->

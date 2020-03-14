@@ -9,7 +9,7 @@ if (isset($_POST["login"])) {
         header("Location:../views/adminHome.php");
     } else {
         try {
-            $pdo = new PDO("mysql:host=localhost;dbname=cafeteria", 'root', 'iti');
+            $pdo = new PDO("mysql:host=localhost;dbname=cafeteria", 'root', '');
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
             $stm = $pdo->query("select * from users where username='{$_POST['username']}' and password='{$_POST['pass']}' ");

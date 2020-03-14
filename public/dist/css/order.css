@@ -1,133 +1,145 @@
 * {
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
 }
-header ,footer{
-    background-color: #aaa;
-    
+header,
+footer {
+  background-color: #aaa;
 }
-header ul{
-    margin-left:3% ;
-   padding: 1%;
-   display: inline;
-   
+header ul {
+  margin-left: 3%;
+  padding: 1%;
+  display: inline;
 }
-header li{
-    display: inline-block;
-    margin: 20px 1%;
+header li {
+  display: inline-block;
+  margin: 20px 1%;
 }
-#userInfo{
-    float: right;
-    padding:.5%;
+#userInfo {
+  float: right;
+  padding: 0.5%;
 }
 #userInfo img {
-    width:30%;
-    height:60px;
-    border:1px solid black;
-    border-radius: 5%;
+  width: 30%;
+  height: 60px;
+  border: 1px solid black;
+  border-radius: 5%;
 }
-#userInfo a{
-    font-size: 1.5em;
-    text-decoration: underline;
+#userInfo a {
+  font-size: 1.5em;
+  text-decoration: underline;
 }
-.container{
-    margin:10px auto;
-
+.container {
+  margin: 10px auto;
 }
-.clear{
-    clear: both;
+.clear {
+  clear: both;
 }
-.menuItems li, .latestOrder li{
-    display: inline-block;
-    width:21%;
-    margin:5px 1.5%;
-    text-align: center;
+.menuItems li,
+.latestOrder li {
+  display: inline-block;
+  width: 21%;
+  margin: 5px 1.5%;
+  text-align: center;
 }
-.menuItems li span{
-    display: block;
+.menuItems li span {
+  display: block;
 }
-.menuItems img , .latestOrder img {
-   width:100%;
-    height:90px;
-    border:1px solid #777;
-    border-radius: 3%;
+.menuItems img,
+.latestOrder img {
+  width: 100%;
+  height: 90px;
+  border: 1px solid #777;
+  border-radius: 3%;
 }
-.menuSection h5{
-    font-size: 1.5em;
-    margin:15px 1%;
-    display: inline-block;
+.menuSection h5 {
+  font-size: 1.5em;
+  margin: 15px 1%;
+  display: inline-block;
 }
-.searchBox{
-    float: right;
-    width:40%;
-    margin-top: 20px;
-    
+.searchBox {
+  float: right;
+  width: 40%;
+  margin-top: 20px;
 }
-.searchBox form{
-    display: inline-block; 
+.searchBox form {
+  display: inline-block;
 }
-.searchBox input{
-    width:60%;
-    display: inline-block;
+.searchBox input {
+  width: 60%;
+  display: inline-block;
 }
-.searchBox a{
-    width:35%;
+.searchBox a {
+  width: 35%;
 }
-hr{
-    border:2px solid black;
+hr {
+  border: 2px solid black;
 }
-.orderAmount{
-    border:2px solid red;
+.orderAmount {
+  border: 2px solid red;
 }
-.orderAmount form{
-    height: 100%;
+.orderAmount form {
+  height: 100%;
 }
-#orderProducts{
-    margin-top: 10px;
-    height:50%;
-    overflow: auto;
-    border: 2px solid #ccc;
+#orderProducts {
+  margin-top: 10px;
+  height: 50%;
+  overflow: auto;
+  border: 2px solid #ccc;
 }
-.productToBuy{
-    margin:10px auto;
-    padding: 5px;
-    font-size: 1.3em;
+.productToBuy {
+  margin: 10px auto;
+  padding: 5px;
+  font-size: 1.3em;
 }
-.productToBuy label{
-    width:40%;
+.productToBuy label {
+  width: 40%;
 }
-.productToBuy input{
-    width: 20%;
+.productToBuy input {
+  width: 20%;
 }
-.orderAmount h6{
-    display: inline-block;
+.orderAmount h6 {
+  display: inline-block;
 }
 #totalPrice {
-    float: right;
-    clear: both;
-}
-.orderAmount input[type=submit]{
-    margin:5px 0 ;
     display: block;
-    float: right;
-    clear: both;
-}
-footer{
-    text-align: center;
-}
-@media all and ( orientation :portrait) {
-    #userInfo{
-        padding-right:0;
-        margin-left:7%;
-    }
-    #userInfo a{
-        font-size: 1.25em;
-    }
+    font-size: 2rem;
+    font-weight: bold;
 
-    header ul{
-        margin-left:0% ;
-    }
-    header li{
-        margin: 20px 0;
-    }
+}
+.orderAmount input[type="submit"] {
+  margin: 5px 0;
+  display: block;
+  float: right;
+  clear: both;
+}
+footer {
+  text-align: center;
+}
+.prices {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+.total{
+    display: block;
+    font-size: 2rem;
+    margin-right: 15px;
+}
+@media all and (orientation: portrait) {
+  #userInfo {
+    padding-right: 0;
+    margin-left: 7%;
+  }
+  #userInfo a {
+    font-size: 1.25em;
+  }
+
+  header ul {
+    margin-left: 0%;
+  }
+  header li {
+    margin: 20px 0;
+  }
 }
