@@ -47,7 +47,8 @@
                                 </thead>
                                 <tbody>
                                     <?php
-                                        $query="SELECT * from product";
+                                        $query="SELECT * from product  ";
+                                        
                                         $result=mysqli_query($conn,$query);
                                         $count=1;
                                     ?>
@@ -57,7 +58,7 @@
                                         <?php echo $row["price"]; ?></td><td align="center">
                                         
                                         <?php echo"<img src='../uploads/{$row['picture'] }' style='width:80px;height:130px'; ";?></td><td align="center">
-                                        <?php echo $row["category"]; ?></td><td align="center">
+                                        <?php echo $row["category_id"]; ?></td><td align="center">
                                         <a href="../controller/edit_product.php?id=<?php echo $row["product_id"] ?>">
                                             <button type="button" class="btn btn-info">Edit</button>
                                         </a></td><td align="center">

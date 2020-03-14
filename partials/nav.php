@@ -1,3 +1,6 @@
+  <?php
+    session_start();
+  ?>
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand-md navbar-dark navbar-lightblue">
     <div class="container">
@@ -123,9 +126,9 @@
         <li class="nav-item dropdown user-menu">
           <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
                 <?php
-                  echo "<img src='../uploads/{$_SESSION['picture']}' alt='User Avatar' class='img-size-50 mr-3 img-circle'>"
+                 echo "<img src='../uploads/{$_SESSION['picture']}' alt='User Avatar' class='img-size-50 mr-3 img-circle'>"
                 ?>
-            <span class="d-none d-md-inline"><?php echo $_SESSION['username']?></span>
+            <!-- <span class="d-none d-md-inline"><?php echo $_SESSION['username']?></span> -->
           </a>
           <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
             <!-- User image -->
