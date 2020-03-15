@@ -8,14 +8,14 @@
 $id = $_GET['id'];
  
 //selecting data associated with this particular id
-$result = mysqli_query($conn, "SELECT * FROM product WHERE product_id=$id");
+$result = mysqli_query($conn, "SELECT * FROM product , category WHERE product_id=$id");
  
 while($res = mysqli_fetch_array($result))
 {
     $name = $res['product_name'];
     $price = $res['price'];
     $picture = $res['picture'];
-    $category=$res['category'];
+    $category=$res['name'];
 }
 
 
