@@ -1,16 +1,4 @@
-<!-- <header> 
-        <ul>
-            <li><a href="userHome.php">Home</a></li>
-            <span>| </span>
-            <li><a href="myOrders.php" >My orders</a></li>
-        </ul>
 
-        <div id="userInfo">
-            <img src="../public/dist/img/1.jpg" />
-            <a href="#">Islam Askar</a>
-        </div>
-        <div class="clear"></div>
-    </header> -->
       <!-- Navbar -->
   <nav class="main-header navbar navbar-expand-md navbar-dark navbar-lightblue">
     <div class="container">

@@ -24,11 +24,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <?php
 
     session_start();
-    if($_GET['e']){
+    
+    if(isset($_GET['e'])){
         $message = "please select some items for your order";
         echo "<script type='text/javascript'>alert('$message');</script>";
     }
-    if($_GET['s']){
+    if(isset($_GET['s'])){
         $message = "server couldn't be reached";
         echo "<script type='text/javascript'>alert('$message');</script>";
     }    
@@ -185,6 +186,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <strong>Copyright &copy; 2014-2019 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
         </footer>
     </div>
+
     <!-- ./wrapper -->
 
     <!-- REQUIRED SCRIPTS -->

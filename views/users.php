@@ -13,11 +13,31 @@
     <link rel="stylesheet" href="../public/dist/css/adminlte.min.css">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <style>
+    #userImage{
+        width:100px;
+        height:100px;
+        border-radius:50%;
+        border:1px solid #444;
+    }
+    </style>
 </head>
 
 <body class="hold-transition layout-top-nav">
     <div class="wrapper">
         <?php include '../partials/nav.php'; ?>
+     
+    <?php
+    $conn = new mysqli("localhost", "root", "", "cafeteria");
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+$sql = "SELECT  *  FROM users";
+$result = $conn->query($sql);
+?>
+
         <div class="container mt-4">
 
             <div class="row">
@@ -26,64 +46,50 @@
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">Users</h3>
-                            <h3 class="card-title" style="float: right;"><a href="./addUser.php">Add new product</a></h3>
+                            <h3 class="card-title" style="float: right;"><a href="./addUser.php">Add new User</a></h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <table class="table table-bordered">
-                                <thead>
-                                    <tr>
-                                        <th style="width: 10px">#</th>
-                                        <th>Name</th>
-                                        <th>Room</th>
-                                        <th>img</th>
-                                        <th>Ext</th>
-                                        <th>action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>1.</td>
-                                        <td>tea</td>
-                                        <td>
-                                            <p>5 EGB</p>
-                                        </td>
-                                        <td><img src="" alt=""></td>
-                                        <td></td>
-                                        <td>
-                                            <a href="">edit</a>
-                                            <a href="">delete</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>.2</td>
-                                        <td>Nescafe</td>
-                                        <td>
-                                            <p>7 EGB</p>
-                                        </td>
-                                        <td><img src="" alt=""></td>
-                                        <td></td>
-                                        <td>
-                                            <a href="">edit</a>
-                                            <a href="">delete</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>3.</td>
-                                        <td>codffe</td>
-                                        <td>
-                                            <p>6 EGB</p>
-                                        </td>
-                                        <td><img src="" alt=""></td>
-                                        <td></td>
-                                        <td>
-                                            <a href="">edit</a>
-                                            <a href="">delete</a>
-                                        </td>
-                                    </tr>
+                        <?php
+if ($result->num_rows > 0) {
+    echo "<table class='table table-bordered'>
+    <thead>
+        <tr>
+            <th style='width: 10px'>#</th>
+            <th>Name</th>
+            <th>User Name</th>
+            <th>Room</th>
+            <th>img</th>
+            <th>Ext</th>
+            
+            <th>action</th>
+        </tr>
+    </thead>
+    <tbody>";
+    
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        $id=$row["id"];
+        echo "<tr><td>".$row["id"]."</td><td>"
+        .$row["name"]."</td><td>"
+        .$row["username"]."</td><td>"
+        .$row["room_no"]." </td><td align='center'>
+        <img src='../uploads/userImages/{$row['picture'] }' id='userImage' > 
+        </td><td>"
+        .$row["ext"]."</td><td>
+        <a  class='btn btn-info'href='/admin/views/editUser.php?editUser={$row['id']}' >edit</a>
+        <a  class='btn btn-danger' href='/admin/views/deleteUser.php?delUser={$row['id']}' >delete</a>
+       </td></tr>";
+       
+    }
+    echo "  </tbody></table>";
+}
 
-                                </tbody>
-                            </table>
+else {
+    echo "0 results";
+}
+$conn->close();
+?>
                         </div>
                         <!-- /.card-body -->
                         <div class="card-footer clearfix">
@@ -103,8 +109,10 @@
             </div>
         </div>
     </div>
-    <!-- jQuery -->
-    <script src="../plugins/jquery/jquery.min.js"></script>
+
+  <!-- jQuery -->
+   <script src="../plugins/jquery/jquery.min.js"></script> 
+   
     <!-- Bootstrap 4 -->
     <script src="../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE App -->
