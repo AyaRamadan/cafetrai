@@ -34,25 +34,52 @@ $result = $conn->query("select orders.* from orders
         <div class="container">
             <h3>My Orders</h3>
             <div class="chooseDate">
-                <form action="" method="post">
+                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                     <label>Date from</label>
                     <input type="date" placeholder="Date from" name="dateOne" />
                     <i class="fa  fa-facebook-f fa-1x text-primary"></i>
+                    <?php if (isset($dateOneErr)) { ?>
+                        <span class="error">* <?php echo $dateOneErr; ?></span>
+                    <?php } ?>
                     <label>Date to</label>
                     <input type="date" placeholder="Date to" name="dateTwo" />
                     <i class="fa  fa-facebook-f fa-1x text-primary"></i>
+                    <?php if (isset($dateTwoErr)) { ?>
+                        <span class="error">* <?php echo $dateTwoErr; ?></span>
+                    <?php } ?>
                     <input type="submit" name="sumbitDates" value="sumbit" class="btn btn-primary">
                 </form>
                 <?php
-                // session_start();
                 $loggedUser = $_SESSION['id'];
-                // var_dump($_POST['dateOne']);
                 if (isset($_POST['dateOne'])) {
                     $dateOne = $_POST['dateOne'];
                 }
                 if (isset($_POST['dateTwo'])) {
                     $dateTwo = $_POST['dateTwo'];
                 }
+                // $dateOne = $dateTwo  = "";
+                // $dateOneErr = $dateTwoErr = "";
+
+                // if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                //     if (empty($_POST["dateOne"])) {
+                //         $dateOneErr = "start date is required";
+                //     } else {
+                //         $dateOne = test_input($_POST["dateOne"]);
+                //     }
+                //     if (empty($_POST["dateTwo"])) {
+                //         $dateTwoErr = "end date is required";
+                //     } else {
+                //         $dateTwo = test_input($_POST["dateTwo"]);
+                //     }
+                // }
+
+                // function test_input($data)
+                // {
+                //     $data = trim($data);
+                //     $data = stripslashes($data);
+                //     $data = htmlspecialchars($data);
+                //     return $data;
+                // }
                 include '../connection/connection.php';
                 global $conn;
 
